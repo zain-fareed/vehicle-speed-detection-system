@@ -55,7 +55,7 @@ The workflow is designed for fixed-camera traffic footage and can be run locally
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── speed_detection.py        # add your existing pipeline script here
+├── speed_detection.py        # Add your existing pipeline script here
 ├── video.mp4                 # input video (example)
 ├── output_speed.mp4          # generated after run
 ├── speed_log.csv             # generated after run
@@ -97,8 +97,8 @@ After execution, verify these artifacts:
 
 ## Results
 
-- **Video Output (`output_speed.mp4`)**: shows tracked vehicles and estimated speeds.
-- **CSV Output (`speed_log.csv`)**: contains vehicle-wise speed statistics (for example, avg/max speed by track ID).
+- **Video Output (`output_speed.mp4`)**: Shows tracked vehicles and estimated speeds.
+- **CSV Output (`speed_log.csv`)**: Contains vehicle-wise speed statistics (for example, avg/max speed by track ID).
 
 ---
 
