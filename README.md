@@ -1,108 +1,94 @@
 # Vehicle Speed Detection System
 
+Portfolio-ready computer vision project for estimating vehicle speed from traffic video using **YOLOv8**, **OpenCV**, **NumPy**, and **ByteTrack**.
+
 **Author:** Muhammad Zain Fareed
-
-A computer vision project that detects vehicles in traffic video, tracks them across frames, and estimates their speed using perspective transformation and object tracking.
-
----
-
-## Demo
-
-- **Input Video:** `video.mp4` or your uploaded source video  
-- **Output Video:** `output_speed.mp4`  
-- **Speed Report:** `speed_log.csv`
-
-> If you have a short demo clip, place it in the repository and link it here.
 
 ---
 
 ## Project Overview
 
-This project uses **YOLOv8** for vehicle detection and **ByteTrack** for multi-object tracking.  
-Each vehicle is tracked across frames using a unique track ID. The vehicle’s position is projected into a bird’s-eye view using perspective transformation, and real-world speed is estimated in km/h.
+This project detects vehicles in road footage, tracks each vehicle across frames, and estimates speed in km/h using perspective-based motion analysis. It produces:
 
-The system also exports a CSV report containing the average and maximum speed for each tracked vehicle.
+- an annotated output video: `output_speed.mp4`
+- a per-vehicle speed report: `speed_log.csv`
+
+The workflow is designed for fixed-camera traffic footage and can be run locally or in Google Colab.
 
 ---
 
-## Features
+## Key Features
 
-- Detects vehicles in video frames
-- Tracks vehicles with unique IDs
-- Estimates vehicle speed in km/h
-- Displays live speed labels on the video
-- Exports speed statistics to CSV
-- Supports cars, motorcycles, buses, and trucks
-- Works on fixed camera traffic footage
+- Vehicle detection with YOLOv8
+- Multi-object tracking with ByteTrack IDs
+- Speed estimation in km/h from tracked trajectories
+- On-frame speed overlays in output video
+- CSV export with speed analytics per tracked vehicle
 
 ---
 
 ## Tech Stack
 
-- **Python**
-- **OpenCV**
-- **NumPy**
-- **Ultralytics YOLOv8**
-- **ByteTrack**
+- Python
+- Ultralytics YOLOv8
+- OpenCV
+- NumPy
+- ByteTrack (via Ultralytics tracker integration)
 
 ---
 
 ## How It Works
 
-1. Load the input video
-2. Detect vehicles using YOLOv8
-3. Track vehicles across frames using ByteTrack
-4. Convert image coordinates to bird’s-eye-view coordinates
-5. Calculate distance traveled over time
-6. Estimate speed in km/h
-7. Save the annotated output video and CSV report
+1. Load the input traffic video.
+2. Detect vehicles in each frame using YOLOv8.
+3. Track objects over time with ByteTrack.
+4. Map motion into a calibrated perspective space.
+5. Estimate speed from distance-over-time.
+6. Save annotated video (`output_speed.mp4`) and speed log (`speed_log.csv`).
 
 ---
 
-## Project Structure
+## Repository Structure
 
 ```text
 .
-├── assets/
-│   ├── output_frame.png
-│   └── csv_preview.png
-├── speed_detection.py
 ├── README.md
 ├── requirements.txt
-├── output_speed.mp4
-├── speed_log.csv
-└── video.mp4
+├── .gitignore
+└── assets/
+    └── .gitkeep
 ```
+
+> Typical runtime files (generated after running the script):
+>
+> - `speed_detection.py` (main pipeline script)
+> - `video.mp4` (input video)
+> - `output_speed.mp4` (annotated output)
+> - `speed_log.csv` (speed report)
 
 ---
 
 ## Installation
 
-Install the required Python packages:
-
 ```bash
-pip install ultralytics opencv-python numpy
-```
-
-Or, if you use a requirements file:
-
-```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
 pip install -r requirements.txt
 ```
 
 ---
 
-## How to Run
+## Run Instructions
 
-1. Make sure your input video is available in the project folder.
-2. Update the `VIDEO_IN` variable inside `speed_detection.py` if needed.
-3. Run the script:
+1. Place your input traffic video in the project directory.
+2. Ensure your script input path (for example `VIDEO_IN`) points to that video.
+3. Run:
 
 ```bash
 python speed_detection.py
 ```
 
-After execution, the following files will be generated:
+After execution, verify these artifacts:
 
 - `output_speed.mp4`
 - `speed_log.csv`
@@ -111,60 +97,42 @@ After execution, the following files will be generated:
 
 ## Results
 
-### Output Video
-The output video shows:
-- detected vehicles
-- track IDs
-- speed labels in km/h
-- color-coded speed display
-
-### CSV Report
-The CSV file contains:
-- `track_id`
-- `class`
-- `frames_tracked`
-- `avg_kph`
-- `max_kph`
+- **Video Output (`output_speed.mp4`)**: shows tracked vehicles and estimated speeds.
+- **CSV Output (`speed_log.csv`)**: contains vehicle-wise speed statistics (for example avg/max speed by track ID).
 
 ---
 
 ## Notes
 
-- Speed accuracy depends on camera position, road geometry, and calibration quality.
-- The system performs best with a fixed camera and clear lane visibility.
-- Perspective points may need to be adjusted for different road scenes.
+- Accuracy depends on camera placement, calibration, and perspective points.
+- Best results come from stable, fixed-camera videos with clear road visibility.
+- Different road scenes may require recalibration of perspective references.
 
 ---
 
 ## Future Improvements
 
-- Improve road calibration accuracy
-- Support live webcam input
-- Add lane-wise analysis
-- Build a dashboard for real-time monitoring
-- Add better speed smoothing for noisy detections
+- Automatic camera calibration and scale estimation
+- Lane-level speed analytics and violation rules
+- Real-time stream support (RTSP/webcam)
+- Dashboard for live traffic monitoring
+- More robust night/rain handling
 
 ---
 
-## Learning Outcomes
-
-This project helped me strengthen my skills in:
-
-- Computer Vision
-- Object Detection
-- Multi-Object Tracking
-- Speed Estimation
-- Video Analytics
-- Python development
-
----
-
-## Author
+## Author & Contact
 
 **Muhammad Zain Fareed**
 
+- GitHub: https://github.com/zain-fareed
+- LinkedIn: Add your LinkedIn profile URL here
+
 ---
 
-## Contact
+## Portfolio / Recruiter Notes
 
-If you'd like to connect or discuss this project, feel free to reach out.
+To present this project professionally:
+
+1. Add 1–3 screenshots in `assets/` (for example, tracked frame and CSV preview).
+2. Keep a short demo clip or generated `output_speed.mp4` in the repository (or link it if large).
+3. Include `speed_log.csv` sample output when sharing project results.
