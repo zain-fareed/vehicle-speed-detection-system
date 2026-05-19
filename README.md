@@ -55,16 +55,15 @@ The workflow is designed for fixed-camera traffic footage and can be run locally
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+├── speed_detection.py        # add your existing pipeline script here
+├── video.mp4                 # input video (example)
+├── output_speed.mp4          # generated after run
+├── speed_log.csv             # generated after run
 └── assets/
     └── .gitkeep
 ```
 
-> Files used in the workflow:
->
-> - `speed_detection.py` (main pipeline script from the existing project code)
-> - `video.mp4` (input video)
-> - `output_speed.mp4` (generated annotated output)
-> - `speed_log.csv` (generated speed report)
+> This repository update focuses on project presentation/setup files. Add your existing `speed_detection.py` from your working project code to run the full pipeline locally.
 
 ---
 
@@ -80,7 +79,7 @@ pip install -r requirements.txt
 
 ## Run Instructions
 
-1. Ensure `speed_detection.py` (your existing detection pipeline script) is in the project root.
+1. Place your existing `speed_detection.py` detection pipeline script in the project root.
 2. Place your input traffic video in the project directory.
 3. Update `VIDEO_IN` in `speed_detection.py` to match your input filename/path.
 4. Run:
