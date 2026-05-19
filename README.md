@@ -124,8 +124,7 @@ After execution, verify these artifacts:
 
 **Muhammad Zain Fareed**
 
-- GitHub: https://github.com/zain-fareed
-- LinkedIn: Available on request
+- GitHub: [zain-fareed](https://github.com/zain-fareed)
 
 ---
 
