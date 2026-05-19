@@ -1,57 +1,170 @@
 # Vehicle Speed Detection System
 
-Vehicle speed detection using **YOLOv8**, **OpenCV**, and **ByteTrack**.
+**Author:** Muhammad Zain Fareed
 
-## Overview
-This project detects vehicles in video streams, tracks them across frames, and estimates their speed.
+A computer vision project that detects vehicles in traffic video, tracks them across frames, and estimates their speed using perspective transformation and object tracking.
+
+---
+
+## Demo
+
+- **Input Video:** `video.mp4` or your uploaded source video  
+- **Output Video:** `output_speed.mp4`  
+- **Speed Report:** `speed_log.csv`
+
+> If you have a short demo clip, place it in the repository and link it here.
+
+---
+
+## Project Overview
+
+This project uses **YOLOv8** for vehicle detection and **ByteTrack** for multi-object tracking.  
+Each vehicle is tracked across frames using a unique track ID. The vehicle’s position is projected into a bird’s-eye view using perspective transformation, and real-world speed is estimated in km/h.
+
+The system also exports a CSV report containing the average and maximum speed for each tracked vehicle.
+
+---
 
 ## Features
-- Vehicle detection with YOLOv8
-- Multi-object tracking with ByteTrack
-- Speed estimation from video frames
-- OpenCV-based video processing
-- Easy-to-customize pipeline for traffic analysis
+
+- Detects vehicles in video frames
+- Tracks vehicles with unique IDs
+- Estimates vehicle speed in km/h
+- Displays live speed labels on the video
+- Exports speed statistics to CSV
+- Supports cars, motorcycles, buses, and trucks
+- Works on fixed camera traffic footage
+
+---
 
 ## Tech Stack
-- Python
-- YOLOv8
-- OpenCV
-- ByteTrack
 
-## Getting Started
+- **Python**
+- **OpenCV**
+- **NumPy**
+- **Ultralytics YOLOv8**
+- **ByteTrack**
 
-### Prerequisites
-Make sure you have:
-- Python 3.9+
-- pip
-- A working webcam or video file
-- Model weights and tracker configuration, if required by your implementation
+---
 
-### Installation
+## How It Works
+
+1. Load the input video
+2. Detect vehicles using YOLOv8
+3. Track vehicles across frames using ByteTrack
+4. Convert image coordinates to bird’s-eye-view coordinates
+5. Calculate distance traveled over time
+6. Estimate speed in km/h
+7. Save the annotated output video and CSV report
+
+---
+
+## Project Structure
+
+```text
+.
+├── assets/
+│   ├── output_frame.png
+│   └── csv_preview.png
+├── speed_detection.py
+├── README.md
+├── requirements.txt
+├── output_speed.mp4
+├── speed_log.csv
+└── video.mp4
+```
+
+---
+
+## Installation
+
+Install the required Python packages:
+
 ```bash
-git clone https://github.com/zain-fareed/vehicle-speed-detection-system.git
-cd vehicle-speed-detection-system
+pip install ultralytics opencv-python numpy
+```
+
+Or, if you use a requirements file:
+
+```bash
 pip install -r requirements.txt
 ```
 
-### Run
-If your main script is named `main.py`, run:
+---
+
+## How to Run
+
+1. Make sure your input video is available in the project folder.
+2. Update the `VIDEO_IN` variable inside `speed_detection.py` if needed.
+3. Run the script:
+
 ```bash
-python main.py
+python speed_detection.py
 ```
 
-If your entry file has a different name, replace `main.py` with that file.
+After execution, the following files will be generated:
 
-## Project Structure
-A typical structure may include:
-- `main.py` — application entry point
-- `models/` — trained weights or model files
-- `utils/` — helper functions
-- `data/` — input videos or sample assets
+- `output_speed.mp4`
+- `speed_log.csv`
+
+---
+
+## Results
+
+### Output Video
+The output video shows:
+- detected vehicles
+- track IDs
+- speed labels in km/h
+- color-coded speed display
+
+### CSV Report
+The CSV file contains:
+- `track_id`
+- `class`
+- `frames_tracked`
+- `avg_kph`
+- `max_kph`
+
+---
 
 ## Notes
-- Update paths to your model weights and input video before running.
-- If you add requirements, keep `requirements.txt` up to date.
 
-## License
-Add a license file if you want to define how others can use this project.
+- Speed accuracy depends on camera position, road geometry, and calibration quality.
+- The system performs best with a fixed camera and clear lane visibility.
+- Perspective points may need to be adjusted for different road scenes.
+
+---
+
+## Future Improvements
+
+- Improve road calibration accuracy
+- Support live webcam input
+- Add lane-wise analysis
+- Build a dashboard for real-time monitoring
+- Add better speed smoothing for noisy detections
+
+---
+
+## Learning Outcomes
+
+This project helped me strengthen my skills in:
+
+- Computer Vision
+- Object Detection
+- Multi-Object Tracking
+- Speed Estimation
+- Video Analytics
+- Python development
+
+---
+
+## Author
+
+**Muhammad Zain Fareed**
+
+---
+
+## Contact
+
+If you'd like to connect or discuss this project, feel free to reach out.
