@@ -59,12 +59,12 @@ The workflow is designed for fixed-camera traffic footage and can be run locally
     └── .gitkeep
 ```
 
-> Typical runtime files (generated after running the script):
+> Typical files used in the workflow:
 >
-> - `speed_detection.py` (main pipeline script)
+> - `speed_detection.py` (main pipeline script, provided in project code)
 > - `video.mp4` (input video)
-> - `output_speed.mp4` (annotated output)
-> - `speed_log.csv` (speed report)
+> - `output_speed.mp4` (generated annotated output)
+> - `speed_log.csv` (generated speed report)
 
 ---
 
@@ -98,7 +98,7 @@ After execution, verify these artifacts:
 ## Results
 
 - **Video Output (`output_speed.mp4`)**: shows tracked vehicles and estimated speeds.
-- **CSV Output (`speed_log.csv`)**: contains vehicle-wise speed statistics (for example avg/max speed by track ID).
+- **CSV Output (`speed_log.csv`)**: contains vehicle-wise speed statistics (for example, avg/max speed by track ID).
 
 ---
 
