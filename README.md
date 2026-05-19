@@ -59,9 +59,9 @@ The workflow is designed for fixed-camera traffic footage and can be run locally
     └── .gitkeep
 ```
 
-> Typical files used in the workflow:
+> Files used in the workflow:
 >
-> - `speed_detection.py` (main pipeline script, provided in project code)
+> - `speed_detection.py` (main pipeline script from the existing project code)
 > - `video.mp4` (input video)
 > - `output_speed.mp4` (generated annotated output)
 > - `speed_log.csv` (generated speed report)
@@ -80,9 +80,10 @@ pip install -r requirements.txt
 
 ## Run Instructions
 
-1. Place your input traffic video in the project directory.
-2. Ensure your script input path (for example `VIDEO_IN`) points to that video.
-3. Run:
+1. Ensure `speed_detection.py` (your existing detection pipeline script) is in the project root.
+2. Place your input traffic video in the project directory.
+3. Update `VIDEO_IN` in `speed_detection.py` to match your input filename/path.
+4. Run:
 
 ```bash
 python speed_detection.py
