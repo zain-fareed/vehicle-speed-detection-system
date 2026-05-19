@@ -125,7 +125,7 @@ After execution, verify these artifacts:
 **Muhammad Zain Fareed**
 
 - GitHub: https://github.com/zain-fareed
-- LinkedIn: Add your LinkedIn profile URL here
+- LinkedIn: Available on request
 
 ---
 
